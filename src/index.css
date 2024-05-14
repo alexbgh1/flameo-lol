@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.none {
+  @apply bg-transparent;
+}
+.bg-zinc {
+  @apply bg-zinc-900;
+}
+
+.grieta {
+  background-image: url("/images/grieta.png");
+  background-size: cover;
+  background-position: center;
+}

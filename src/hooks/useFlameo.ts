@@ -9,7 +9,10 @@ const useFlameo = () => {
     return rawMessages[randomIndex] as ChatMessage[];
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    const newFlameo = getRandomFlameo();
+    setFlameos(newFlameo);
+  }, []);
 
   const handleNewFlameo = () => {
     const newFlameo = getRandomFlameo();
