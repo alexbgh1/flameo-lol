@@ -1,0 +1,38 @@
+[
+  [
+    {
+      "timestamp": "01:03",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "jugador1",
+      "champion": "Lee Sin",
+      "message": "este es mi mensaje"
+    },
+    {
+      "timestamp": "01:04",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "jugador1",
+      "champion": "Lee Sin",
+      "message": "escribo muy rápido!"
+    }
+  ],
+  [
+    {
+      "timestamp": "02:15",
+      "scope": "todos",
+      "team": "enemigo",
+      "player": "jugador2",
+      "champion": "Ahri",
+      "message": "¡Eso fue suerte!"
+    },
+    {
+      "timestamp": "02:20",
+      "scope": "todos",
+      "team": "aliado",
+      "player": "jugador1",
+      "champion": "Lee Sin",
+      "message": "¿Suerte? Solo habilidad."
+    }
+  ]
+]
