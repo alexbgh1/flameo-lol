@@ -4,10 +4,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        "team-enemigo": "#ff4500",
-        "team-aliado": "#00bfff",
-        purple: "#3f3cbb",
-        midnight: "#121063",
+        "team-enemigo": "#d82e2f",
+        "team-aliado": "#42a6db",
       },
     },
   },
