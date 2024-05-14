@@ -1,3 +1,4 @@
+import { cn } from "../lib/utils";
 import { ChatMessage as msg } from "../types/chatMessage";
 
 interface ChatMessageProps {
@@ -7,7 +8,7 @@ const ChatMessage = ({ msg }: ChatMessageProps) => {
   const { timestamp, scope, team, player, champion, message } = msg;
   const textColor = team === "aliado" ? `text-team-aliado` : `text-team-enemigo`;
   return (
-    <div className={textColor}>
+    <div className={cn("z-[2]", textColor)}>
       <span className="text-zinc-100/80">{timestamp} </span>
       <span className="capitalize">[{scope}] </span>
       <span className="player">{player} </span>
