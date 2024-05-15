@@ -3,7 +3,7 @@ import ChatMessage from "./ChatMessage";
 
 interface ChatProps {
   bg: string;
-  flameos: ChatMessageType[];
+  flameos: ChatMessageType[] | null;
 }
 
 const Chat = ({ bg, flameos }: ChatProps) => {
@@ -12,7 +12,7 @@ const Chat = ({ bg, flameos }: ChatProps) => {
   const bgg = isBG ? splitBG[1] : `${splitBG[1]}`;
   return (
     <div className={`flex flex-col p-4 bg-zinc-950 rounded-lg ${bgg}`}>
-      {flameos.map((msg, index) => (
+      {flameos?.map((msg, index) => (
         <ChatMessage key={index} msg={msg} />
       ))}
     </div>
