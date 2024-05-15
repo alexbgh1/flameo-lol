@@ -17,14 +17,14 @@ const Pagination = ({ currentIndex, goPreviousPage, goNextPage, maxIndex }: Pagi
     <>
       <audio ref={soundRef} src="/sound/message-sound.mp3" />
       <button
-        className="text-zinc-400 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="transition-colors duration-300 text-zinc-400 hover:text-zinc-300 disabled:opacity-50 disabled:cursor-not-allowed"
         onClick={goPreviousPage}
         disabled={currentIndex === 0}
       >
         Anterior
       </button>
       <button
-        className="text-zinc-400 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="transition-colors duration-300 text-zinc-400 hover:text-zinc-300 disabled:opacity-50 disabled:cursor-not-allowed"
         onClick={goNextPage}
         disabled={currentIndex === maxIndex}
       >

@@ -1,11 +1,14 @@
+import { useEffect } from "react";
+
 import { useFlameo } from "./hooks/useFlameo";
 import { usePagination } from "./hooks/usePagination";
 import { useBG } from "./hooks/useBG";
 
-import Header from "./components/Header";
 import Pagination from "./components/Pagination";
+import CurrentFlameo from "./components/CurrentFlameo";
+
+import Header from "./components/Header";
 import Chat from "./components/Chat";
-import { useEffect } from "react";
 import Restart from "./components/Restart";
 
 function App() {
@@ -17,6 +20,9 @@ function App() {
     restartIndex();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [flameos]);
+
+  const queryParams = new URLSearchParams(location.search);
+  const index = Number(queryParams.get("message")) || 0;
 
   const handleRestart = () => {
     restartIndex();
@@ -30,6 +36,7 @@ function App() {
         <h1 className="text-2xl font-bold">Flameos lol</h1>
       </header>
       <main className="mb-[calc(4rem+1px)] flex flex-col items-center py-8 sm:py-8 flex-1">
+        {/* Controls */}
         <div className="flex justify-center gap-4 mb-4">
           <Pagination
             currentIndex={currentIndex}
@@ -40,8 +47,12 @@ function App() {
           <Restart handleRestart={handleRestart} />
         </div>
 
+        {/* Content */}
         <div className="w-full max-w-xl px-4">
-          <Header bg={bg} handleChange={handleChange} />
+          <div className="flex flex-row items-center justify-between">
+            <Header bg={bg} handleChange={handleChange} />
+            <CurrentFlameo index={index} maxIndex={maxIndex} />
+          </div>
           <Chat bg={bg} flameos={slicedFlameos} />
         </div>
       </main>
