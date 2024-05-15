@@ -6,7 +6,7 @@ interface HeaderProps {
 }
 const Header = ({ bg, handleChange }: HeaderProps) => {
   return (
-    <Select className="w-4/5" label="Cambiar fondo" onChange={handleChange} value={bg}>
+    <Select className="w-full" label="Cambiar fondo" onChange={handleChange} value={bg}>
       <option value="bg:none">Ninguno</option>
       <option value="bg:bg-zinc">Gris</option>
       <option value="img:i2v2">2v2</option>

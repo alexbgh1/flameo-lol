@@ -14,7 +14,7 @@ import Restart from "./components/Restart";
 function App() {
   const { flameos, maxIndex, handleNewFlameo } = useFlameo();
   const { currentIndex, restartIndex, goPreviousPage, goNextPage } = usePagination({ maxIndex: maxIndex });
-  const { bg, handleChange } = useBG();
+  const { bg, handleChange, handleBG } = useBG();
 
   useEffect(() => {
     restartIndex();
@@ -30,10 +30,12 @@ function App() {
   };
 
   const slicedFlameos = flameos ? flameos.slice(0, currentIndex) : null;
+  const background = handleBG(bg);
+
   return (
     <>
       <header className="py-4 text-center bg-zinc-900 text-zinc-400">
-        <h1 className="text-2xl font-bold">Flameos lol</h1>
+        <h1 className="text-2xl font-bold">Flameo lol</h1>
       </header>
       <main className="mb-[calc(4rem+1px)] flex flex-col items-center py-8 sm:py-8 flex-1">
         {/* Controls */}
@@ -51,9 +53,11 @@ function App() {
         <div className="w-full max-w-xl px-4">
           <div className="flex flex-row items-center justify-between">
             <Header bg={bg} handleChange={handleChange} />
-            <CurrentFlameo index={index} maxIndex={maxIndex} />
           </div>
-          <Chat bg={bg} flameos={slicedFlameos} />
+          <div className={`relative flex flex-col p-4 bg-zinc-950 rounded-lg ${background}`}>
+            <CurrentFlameo index={index} maxIndex={maxIndex} />
+            <Chat flameos={slicedFlameos} />
+          </div>
         </div>
       </main>
     </>

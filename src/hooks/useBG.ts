@@ -7,7 +7,13 @@ const useBG = () => {
     setBg(e.target.value);
   };
 
-  return { bg, handleChange };
+  const handleBG = (bg: string) => {
+    const splitBG = bg.split(":");
+    const isBG = splitBG[0] === "bg" ? true : false;
+    return isBG ? splitBG[1] : `${splitBG[1]}`;
+  };
+
+  return { bg, handleChange, handleBG };
 };
 
 export { useBG };
