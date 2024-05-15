@@ -1,14 +1,12 @@
-import Button from "./Button";
 import Select from "./Select";
 
 interface HeaderProps {
   bg: string;
-  handleNewFlameo: () => void;
   handleChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
 }
-const Header = ({ bg, handleNewFlameo, handleChange }: HeaderProps) => {
+const Header = ({ bg, handleChange }: HeaderProps) => {
   return (
-    <div className="flex flex-col justify-between items-center">
+    <div className="flex flex-col items-center justify-between">
       <Select className="w-full" label="Cambiar fondo" onChange={handleChange} value={bg}>
         <option value="bg:none">Ninguno</option>
         <option value="bg:bg-zinc">Gris</option>
@@ -17,9 +15,6 @@ const Header = ({ bg, handleNewFlameo, handleChange }: HeaderProps) => {
         <option value="img:abismo">Abismo de los Lamentos</option>
         <option value="img:bosque">Bosque Retorcido</option>
       </Select>
-      <Button className="w-full" onClick={handleNewFlameo}>
-        Roll
-      </Button>
     </div>
   );
 };

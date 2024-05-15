@@ -15,13 +15,19 @@
   background-position: center;
 }
 
+.abismo {
+  background-image: url("/images/abismo.png");
+  background-size: cover;
+  background-position: center;
+}
+
 .i2v2 {
   background-image: url("/images/2v2.png");
   background-size: cover;
   background-position: center;
 }
 
-/* Oscurece con 50% de opacidad
+/* Oscurece con 50% de opacidad */
 .i2v2::before {
   content: "";
   position: absolute;
@@ -29,7 +35,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.3);
+  @apply rounded-lg;
   z-index: 2;
 }
-*/

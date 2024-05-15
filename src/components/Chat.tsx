@@ -6,12 +6,16 @@ interface ChatProps {
   flameos: ChatMessageType[] | null;
 }
 
-const Chat = ({ bg, flameos }: ChatProps) => {
+const handleBG = (bg: string) => {
   const splitBG = bg.split(":");
   const isBG = splitBG[0] === "bg" ? true : false;
-  const bgg = isBG ? splitBG[1] : `${splitBG[1]}`;
+  return isBG ? splitBG[1] : `${splitBG[1]}`;
+};
+
+const Chat = ({ bg, flameos }: ChatProps) => {
+  const background = handleBG(bg);
   return (
-    <div className={`flex flex-col p-4 bg-zinc-950 rounded-lg ${bgg}`}>
+    <div className={`relative flex flex-col p-4 bg-zinc-950 rounded-lg ${background}`}>
       {flameos?.map((msg, index) => (
         <ChatMessage key={index} msg={msg} />
       ))}

@@ -5,6 +5,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const useFlameo = () => {
   const [flameos, setFlameos] = useState<ChatMessage[] | null>(null);
+  const [maxIndex, setMaxIndex] = useState<number>(0);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -36,33 +37,11 @@ const useFlameo = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search, navigate]);
 
-  return { flameos, handleNewFlameo };
+  useEffect(() => {
+    setMaxIndex(flameos ? flameos.length : 0);
+  }, [flameos]);
+
+  return { flameos, maxIndex, handleNewFlameo };
 };
 
 export { useFlameo };
-
-// import { useState, useEffect } from "react";
-// import rawMessages from "../data/lol-messages.json";
-// import { ChatMessage } from "../types/chatMessage";
-
-// const useFlameo = () => {
-//   const [flameos, setFlameos] = useState<ChatMessage[] | []>([]);
-//   const getRandomFlameo = () => {
-//     const randomIndex = Math.floor(Math.random() * rawMessages.length);
-//     return rawMessages[randomIndex] as ChatMessage[];
-//   };
-
-//   useEffect(() => {
-//     const newFlameo = getRandomFlameo();
-//     setFlameos(newFlameo);
-//   }, []);
-
-//   const handleNewFlameo = () => {
-//     const newFlameo = getRandomFlameo();
-//     setFlameos(newFlameo);
-//   };
-
-//   return { flameos, handleNewFlameo };
-// };
-
-// export { useFlameo };
