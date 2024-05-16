@@ -1,6 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Custom Cursor */
+* {
+  cursor: url("/images/cursor/normal.cur"), auto;
+}
+
+button,
+input,
+select,
+textarea {
+  cursor: url("/images/cursor/pointer.cur"), pointer;
+}
+
+button:disabled {
+  cursor: url("/images/cursor/unavailable.cur"), not-allowed;
+}
 
 .none {
   @apply bg-transparent;
