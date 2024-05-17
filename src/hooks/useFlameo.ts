@@ -10,7 +10,12 @@ const useFlameo = () => {
   const location = useLocation();
 
   const getRandomFlameo = () => {
-    const randomIndex = Math.floor(Math.random() * rawMessages.length);
+    let randomIndex = Math.floor(Math.random() * rawMessages.length);
+    // Should be different from the current 'flameo'
+    while (flameos && Object.is(flameos, rawMessages[randomIndex])) {
+      randomIndex = Math.floor(Math.random() * rawMessages.length);
+    }
+
     return { index: randomIndex, message: rawMessages[randomIndex] } as { index: number; message: ChatMessage[] };
   };
 
