@@ -1,4 +1,4 @@
-import RefreshIcon from "../icons/icon";
+import { RefreshIcon } from "../icons/icon";
 
 interface RestartProps {
   handleRestart: () => void;
