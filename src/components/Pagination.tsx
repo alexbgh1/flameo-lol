@@ -1,5 +1,3 @@
-import { useState, useEffect, useRef } from "react";
-import { resolvePath } from "../utils";
 import { cn } from "../lib/utils";
 
 interface PaginationProps {
@@ -8,26 +6,20 @@ interface PaginationProps {
   maxIndex: number;
   goPreviousPage: () => void;
   goNextPage: () => void;
+  playSound?: () => void;
 }
-const Pagination = ({ className, currentIndex, goPreviousPage, goNextPage, maxIndex }: PaginationProps) => {
-  const soundRef = useRef<HTMLAudioElement>(null);
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
-    soundRef.current?.play();
-  }, [maxIndex, currentIndex]);
-  if (!mounted) return null;
-
+const Pagination = ({ className, currentIndex, goPreviousPage, goNextPage, playSound, maxIndex }: PaginationProps) => {
   return (
     <>
-      <audio ref={soundRef} src={resolvePath("/sound/message-sound.mp3")} />
       <button
         className={cn(
           "transition-colors duration-300 text-zinc-300 hover:text-zinc-300 disabled:opacity-50",
           className
         )}
-        onClick={goPreviousPage}
+        onClick={() => {
+          goPreviousPage();
+          playSound && playSound();
+        }}
         disabled={currentIndex === 0}
       >
         Anterior
@@ -37,7 +29,10 @@ const Pagination = ({ className, currentIndex, goPreviousPage, goNextPage, maxIn
           "transition-colors duration-300 text-zinc-300 hover:text-zinc-300 disabled:opacity-50",
           className
         )}
-        onClick={goNextPage}
+        onClick={() => {
+          goNextPage();
+          playSound && playSound();
+        }}
         disabled={currentIndex === maxIndex}
       >
         Siguiente

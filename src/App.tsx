@@ -1,20 +1,28 @@
-import { useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 import { useFlameo } from "./hooks/useFlameo";
 import { usePagination } from "./hooks/usePagination";
 import { useBG } from "./hooks/useBG";
 
-import Pagination from "./components/Pagination";
-import CurrentFlameo from "./components/CurrentFlameo";
+import { resolvePath } from "./utils";
 
+import Restart from "./components/Restart";
 import Header from "./components/Header";
 import Chat from "./components/Chat";
-import Restart from "./components/Restart";
+
+import Pagination from "./components/Pagination";
+import CurrentFlameo from "./components/CurrentFlameo";
 
 function App() {
   const { flameos, maxIndex, handleNewFlameo } = useFlameo();
   const { currentIndex, restartIndex, goPreviousPage, goNextPage } = usePagination({ maxIndex: maxIndex });
   const { bg, handleChange, handleBG } = useBG();
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  const playSound = () => {
+    if (!audioRef.current) return;
+    audioRef.current?.play();
+  };
 
   useEffect(() => {
     restartIndex();
@@ -27,6 +35,7 @@ function App() {
   const handleRestart = () => {
     restartIndex();
     handleNewFlameo();
+    playSound();
   };
 
   const slicedFlameos = flameos ? flameos.slice(0, currentIndex) : null;
@@ -38,6 +47,8 @@ function App() {
         <h1 className="text-2xl font-bold">Flameo lol</h1>
       </header>
       <main className="mb-[calc(4rem+1px)] flex flex-col items-center py-16 sm:py-8 flex-1">
+        {/* Audio */}
+        <audio ref={audioRef} src={resolvePath("/sound/message-sound.mp3")} />
         {/* Controls */}
         <div className="w-full max-w-xl px-4">
           <div className="flex flex-row items-center justify-center gap-4 mb-4">
@@ -55,6 +66,7 @@ function App() {
                   maxIndex={maxIndex}
                   goPreviousPage={goPreviousPage}
                   goNextPage={goNextPage}
+                  playSound={playSound}
                 />
               </div>
               <CurrentFlameo index={index} maxIndex={maxIndex} />
