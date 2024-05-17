@@ -16,7 +16,7 @@ const Pagination = ({ className, currentIndex, goPreviousPage, goNextPage, maxIn
 
   useEffect(() => {
     soundRef.current?.play();
-  }, [currentIndex]);
+  }, [maxIndex, currentIndex]);
   if (!mounted) return null;
 
   return (

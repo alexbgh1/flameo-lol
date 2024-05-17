@@ -14,7 +14,6 @@ const Header = ({ bg, handleChange }: HeaderProps) => {
   return (
     <Select label="Cambiar fondo" value={bg}>
       <div className="py-1" role="none">
-        {/* <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" --> */}
         {backgrounds.map((background) => (
           <button
             key={background.value}

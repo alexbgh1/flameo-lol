@@ -9,7 +9,9 @@
 button,
 input,
 select,
-textarea {
+textarea,
+svg,
+path {
   cursor: url("/images/cursor/pointer.cur"), pointer;
 }
 

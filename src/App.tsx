@@ -37,17 +37,15 @@ function App() {
       <header className="py-4 text-center bg-zinc-900 text-zinc-400">
         <h1 className="text-2xl font-bold">Flameo lol</h1>
       </header>
-      <main className="mb-[calc(4rem+1px)] flex flex-col items-center py-8 sm:py-8 flex-1">
+      <main className="mb-[calc(4rem+1px)] flex flex-col items-center py-16 sm:py-8 flex-1">
         {/* Controls */}
-        <div className="flex justify-center gap-4 mb-4">
-          <Restart handleRestart={handleRestart} />
-        </div>
-
-        {/* Content */}
         <div className="w-full max-w-xl px-4">
-          <div className="flex flex-row items-center justify-center mb-4">
+          <div className="flex flex-row items-center justify-center gap-4 mb-4">
+            <Restart handleRestart={handleRestart} />
             <Header bg={bg} handleChange={handleChange} />
           </div>
+
+          {/* Chat */}
           <div className={`relative flex flex-col p-4 bg-zinc-950 rounded-lg ${background}`}>
             <div className="flex flex-row items-center justify-between mb-4">
               <div className="flex flex-row items-center gap-4">
