@@ -14,7 +14,7 @@ import Pagination from "./components/Pagination";
 import CurrentFlameo from "./components/CurrentFlameo";
 
 function App() {
-  const { flameos, maxIndex, handleNewFlameo } = useFlameo();
+  const { flameos, maxIndex, totalMessages, handleNewFlameo } = useFlameo();
   const { currentIndex, restartIndex, goPreviousPage, goNextPage } = usePagination({ maxIndex: maxIndex });
   const { bg, handleChange, handleBG } = useBG();
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -69,7 +69,7 @@ function App() {
                   playSound={playSound}
                 />
               </div>
-              <CurrentFlameo index={index} maxIndex={maxIndex} />
+              <CurrentFlameo index={index} maxIndex={totalMessages} />
             </div>
             <Chat flameos={slicedFlameos} />
           </div>

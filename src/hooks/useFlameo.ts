@@ -9,6 +9,8 @@ const useFlameo = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const totalMessages = rawMessages.length;
+
   const getRandomFlameo = () => {
     let randomIndex = Math.floor(Math.random() * rawMessages.length);
     // Should be different from the current 'flameo'
@@ -46,7 +48,7 @@ const useFlameo = () => {
     setMaxIndex(flameos ? flameos.length : 0);
   }, [flameos]);
 
-  return { flameos, maxIndex, handleNewFlameo };
+  return { flameos, maxIndex, handleNewFlameo, totalMessages };
 };
 
 export { useFlameo };
