@@ -1,38 +1,87 @@
 [
   [
     {
-      "timestamp": "01:03",
+      "type": "chat",
+      "timestamp": "05:11",
       "scope": "equipo",
       "team": "aliado",
-      "player": "jugador1",
-      "champion": "Lee Sin",
-      "message": "este es mi mensaje"
+      "player": "Seiza",
+      "champion": "Twitch",
+      "message": "brb tocanm la puerta"
     },
     {
-      "timestamp": "01:04",
+      "type": "ping",
+      "timestamp": "05:15",
       "scope": "equipo",
       "team": "aliado",
-      "player": "jugador1",
-      "champion": "Lee Sin",
-      "message": "escribo muy rápido!"
+      "player": "ShenGuevara",
+      "champion": "Senna",
+      "message": "indica tener cuidado"
+    },
+    {
+      "type": "chat",
+      "timestamp": "05:38",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "Suizhiro",
+      "champion": "Jarvan IV",
+      "message": "wp senna"
+    },
+    {
+      "type": "chat",
+      "timestamp": "05:39",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "Suizhiro",
+      "champion": "Jarvan IV",
+      "message": "te re luciste"
+    },
+    {
+      "type": "chat",
+      "timestamp": "05:47",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "ShenGuevara",
+      "champion": "Senna",
+      "message": "soy negra"
+    },
+    {
+      "type": "chat",
+      "timestamp": "05:50",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "ShenGuevara",
+      "champion": "Senna",
+      "message": "tratame mal"
+    },
+    {
+      "type": "chat",
+      "timestamp": "05:59",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "Suizhiro",
+      "champion": "Jarvan IV",
+      "message": "te exclaviso si quieres"
+    },
+    {
+      "type": "chat",
+      "timestamp": "06:11",
+      "scope": "equipo",
+      "team": "aliado",
+      "player": "Seiza",
+      "champion": "Twitch",
+      "message": "sorry"
     }
   ],
   [
     {
-      "timestamp": "02:15",
-      "scope": "todos",
-      "team": "enemigo",
-      "player": "jugador2",
-      "champion": "Ahri",
-      "message": "¡Eso fue suerte!"
-    },
-    {
-      "timestamp": "02:20",
-      "scope": "todos",
+      "type": "system",
+      "timestamp": "00:24",
+      "scope": "equipo",
       "team": "aliado",
-      "player": "jugador1",
-      "champion": "Lee Sin",
-      "message": "¿Suerte? Solo habilidad."
+      "player": "Julianzito",
+      "champion": "Aphelios",
+      "message": "abandonó la partida"
     }
   ]
 ]

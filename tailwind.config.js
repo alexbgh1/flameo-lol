@@ -6,6 +6,8 @@ export default {
       colors: {
         "team-enemigo": "#d82e2f",
         "team-aliado": "#42a6db",
+        ping: "#c8bfc0",
+        system: "#c6980f",
       },
     },
   },
