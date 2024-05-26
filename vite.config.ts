@@ -6,4 +6,7 @@ export default defineConfig({
   base: "/flameo-lol/",
   plugins: [react()],
   publicDir: "public",
+  preview: {
+    port: 3333
+  }
 });
