@@ -68,6 +68,12 @@ jobs:
           run: npm run build
           env: 
             VITE_API_BASE_PATH: /flameo-lol
-        - name: Deploy to EC2 Instance
-          run: pm2 start ecosystem.config.js
+        - name: Delete pm2 instance
+          run: pm2 delete flameo-lol.alexbgh
+          
+        - name: pm2 Deploy to EC2 Instance
+          run: pm2 start npm --name flameo-lol.alexbgh -- run preview
+
+        - name: pm2 Status check logs
+          run: pm2 status
           
