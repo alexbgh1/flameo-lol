@@ -70,6 +70,7 @@ jobs:
             VITE_API_BASE_PATH: /flameo-lol
         - name: Delete pm2 instance
           run: pm2 delete flameo-lol.alexbgh
+          continue-on-error: true
           
         - name: pm2 Deploy to EC2 Instance
           run: pm2 start npm --name flameo-lol.alexbgh -- run preview
