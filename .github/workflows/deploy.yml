@@ -75,6 +75,6 @@ jobs:
 #        - name: pm2 Deploy to EC2 Instance
 #          run: pm2 start npm --name flameo-lol.alexbgh -- run preview
 #
-        - name: pm2 Status check logs
-          run: pm2 status
+#        - name: pm2 Status check logs
+#          run: pm2 status
           
